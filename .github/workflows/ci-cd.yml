@@ -54,13 +54,4 @@ jobs:
         if: github.event_name == 'push'
         steps:
             - name: Deploy to production
-              run: |
-                curl -X POST ${{ secrets.RENDER_DEPLOY_URL}}
-                
-# Start container with docker 
-# run -d on port 5000 wait 5 s 
-# curl /api/health → check 
-# response contains "ok" stop 
-# container 
-
-	
+              run: curl -X POST ${{ secrets.RENDER_DEPLOY_URL}}
