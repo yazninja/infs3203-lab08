@@ -45,8 +45,8 @@ jobs:
               with:
                     push: true
                     tags: |
-                        USERNAME/devops-quiz-ai:latest
-                        USERNAME/devops-quiz-ai:${{ github.sha }}
+                        ${{ secrets.DOCKERHUB_USERNAME }}/devops-quiz-ai:latest
+                        ${{ secrets.DOCKERHUB_USERNAME }}/devops-quiz-ai:${{ github.sha }}
     
     deploy:
         runs-on: ubuntu-latest
