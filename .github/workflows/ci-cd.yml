@@ -24,12 +24,12 @@ jobs:
               with:
                     push: false
                     tags: |
-                        USERNAME/devops-quiz-ai:latest
-                        USERNAME/devops-quiz-ai:${{ github.sha }}
+                        ${{ secrets.DOCKERHUB_USERNAME }}/devops-quiz-ai:latest
+                        ${{ secrets.DOCKERHUB_USERNAME }}/devops-quiz-ai:${{ github.sha }}
             
             - name: Smoke test
               run: |
-                docker run -d -p 5000:5000 ${{ github.sha }}
+                docker run -d -p 5000:5000 ${{ secrets.DOCKERHUB_USERNAME }}/devops-quiz-ai:latest
                 sleep 5
                 response=$(curl -s http://localhost:5000/api/health)
                 if [[ "$response" == *"ok"* ]]; then
