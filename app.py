@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, send_from_directory
 import db, ai, os
 
-app = Flask(__name__, static_folder='static') #Flask app
+app = Flask(__name__, static_folder='static') #Flask app 
 
 # ── Static files ──────────────────────────────────────────────────────────────
 @app.route('/')
